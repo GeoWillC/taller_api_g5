@@ -8,6 +8,8 @@ import com.example.demo.modelo.Departamento;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -44,8 +46,8 @@ public class DepartamentoRepositoryImp implements IDepartamentoRepository {
 	// LLENAR CON LA CONSULTA QUE SE NECESITE
 	@Override
 	public List<Departamento> seleccionarTodo() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query=entityManager.createQuery("SELECT d FROM Departamento d");
+		return query.getResultList();
 	}
 
 	@Override

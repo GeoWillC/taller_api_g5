@@ -1,6 +1,10 @@
 package com.example.demo.service.to;
 
-public class DepartamentoTO {
+import java.io.Serializable;
+
+import org.springframework.hateoas.RepresentationModel;
+
+public class DepartamentoTO extends RepresentationModel<DepartamentoTO> implements Serializable{
 
 	private Integer id;
 	private String nombre;

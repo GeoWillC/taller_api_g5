@@ -2,12 +2,15 @@ package com.example.demo.repository;
 
 import java.util.List;
 
+
+
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.modelo.Factura;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -44,8 +47,8 @@ public class FacturaRepositoryImp implements IFacturaRepository {
 	// PONER LOS PARAMETROS QUE NECESITEN
 	@Override
 	public List<Factura> seleccionartodo() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query=this.entityManager.createQuery("SELECT f FROM Factura f");
+		return query.getResultList();
 	}
 
 	@Override
